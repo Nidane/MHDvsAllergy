@@ -1,0 +1,20 @@
+Supplementary Methods 
+Data collection and processing
+Asthma, atopic dermatitis (AD), and maternal hypertensive disorder (MHD) disease burden data was downloaded from Global Burden of Disease Study 2019 (GBD2019, https://vizhub.healthdata.org/gbd-results/). Crude birth rate (birth per 1000 people) and population data was from the World Bank databank (https://databank.worldbank.org/source/gender-statistics#). The gross domestic product (GDP) per capita data was obtained from the Maddison project1. GBD reported data from 1990 to 2019 and analyses were therefore based on this period of time. After collating disease and GDP data and excluding countries or timepoints with no data record, final data spanning 1990-2019 across about 150 countries were generated for analysis. 
+Pregnancy data per year was calculated based on crude birth rate and population data of each country. Crude birth rate data was from GBD2019 and population data was from the World Bank databank. 
+Percentages of pregnancies affected by MHD (MHD%) were calculated as the ratios of MHD cases per year and the pregnancies per year of the same country. As the peaks of incidences of asthma and AD are about 1-4 years old2, this age group was focused for our analysis. Ratios of 1-4 years old asthma and AD cases per year versus the pregnancies 2 years prior of the same country were calculated as proxies of the percentages of pregnancies with offsprings developing asthma (asthma%) and AD (AD%) at 2 years of age. AD% and asthma% was compared with MHD% at the 2 years prior timepoint to decipher the link between MHD and offspring AD and asthma. Percentage data was all logit transformed before analysis. 
+Generalized additive models (GAMs) 
+Generalized additive models (GAMs)3-5 feature in their capacity to interrogate multiple parameters simultaneously, as well as their potential interactions and non-linear effects, through the introduction of nonparametric smoothed functions. These functions are usually in forms of splines and provide flexible manners to evaluate non-linear associations. 
+Here, GAMs were run for AD% or asthma% using MHD% 2 years prior, GDP 2 years prior and time as predictors with the mgcv package and the “gam” function within5,6. In all models, countries from which the data originated were considered as random effects. 
+GAMs with aforementioned predictors and their different combinations, as well as a null model in which only the random effects of countries were considered were run. Using mgcv package5,6, individual parameters were modelled as smooth terms using the “s()” function, while their interactions were modelled utilizing the “ti()” or “te()” function, given their different scales, like MHD% and GDP. 
+Modelling results were compared according to their Akaike information criterion (AIC)7 and the one with the lowest AIC was selected. 
+
+References 
+1.	Jutta Bolt RI, Herman de Jong, and Jan Luiten van Zanden. Rebasing 'Maddison': New income comparisons and the shape of long-run economic development. In. Vol GD-174. GGDC Research Memorandum: Groningen Growth and Development Center; 2018.
+2.	Shin YH, Hwang J, Kwon R, et al. Global, regional, and national burden of allergic disorders and their risk factors in 204 countries and territories, from 1990 to 2019: A systematic analysis for the Global Burden of Disease Study 2019. Allergy. 2023;78(8):2232-2254.
+3.	Diederich A. Generalized additive models.: An introduction with. J Math Psychol. 2007;51(5):339-339.
+4.	Lane PW, Wood S, Jones MC, et al. Generalized additive models for location, scale and shape - Discussion. J Roy Stat Soc C. 2005;54:544-554.
+5.	Verbeke T. Generalized additive models: an introduction with R. J Roy Stat Soc A. 2007;170:262-262.
+6.	Wood SN. Generalized Additive Models: An Introduction with R. Chapman and Hall/CRC; 2017.
+7.	Akaike H. Information theory and an extension of the maximum likelihood principle Second International Symposium on Information Theory; 1973; Budapest.
+
